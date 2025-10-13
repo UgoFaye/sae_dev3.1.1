@@ -1,13 +1,13 @@
 package fr.iutfbleau.remindme;
 
 
-import org.mariadb.jdbc.*;
-import java.sql.*;
+//import org.mariadb.jdbc.*;
+//import java.sql.*;
 
 
 
 
-public class GestionBdd implements JFrame {
+public class GestionBdd{
 
 
 
@@ -16,7 +16,7 @@ public class GestionBdd implements JFrame {
 
 
 
-
+		System.out.println("GestionBdd");
 
 
 

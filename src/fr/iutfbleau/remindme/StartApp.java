@@ -1,4 +1,4 @@
-//package fr.iutfbleau.remindme;
+package fr.iutfbleau.remindme;
 
 
 

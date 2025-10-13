@@ -1,4 +1,4 @@
-//package fr.iutfbleau.remindme;implements MouseListener
+package fr.iutfbleau.remindme;//implements MouseListener
 
 
 
@@ -32,6 +32,7 @@ public class Fenetre extends JFrame
 {
 
 
+	GridBagConstraints gbc = new GridBagConstraints();
 
 
 
@@ -50,11 +51,38 @@ public class Fenetre extends JFrame
 
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		
-		this.setSize(400, 75);
+		this.setSize(400, 400);
 		this.setLocation(d.width-400,0);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 
+
+
+		this.setLayout(new GridBagLayout());
+		this.gbc.fill = GridBagConstraints.BOTH;     	// chaque case occupe tout l'espace de la plage
+		this.gbc.anchor = GridBagConstraints.CENTER; 	// chaque case place au centre de la plage
+		this.gbc.insets = new Insets(0, 0, 0, 0);    	// laisse 0 pixels de vide autour des composants
+		this.gbc.weightx = 0.0; 					 	// les composants n'ont pas besoin de largeur supplémentaire
+		this.gbc.weighty = 0.0;  					 	// les composants n'ont pas besoin de hauteur supplémentaire
+		this.gbc.gridheight = 1; 					 	// les composants font toujours exactement une ligne au max de hauteur
+		this.gbc.gridwidth = 1;
+		this.gbc.gridheight = 1;
+		this.gbc.gridx = 0;
+		this.gbc.gridy = 0;
+
+
+
+
+		this.add(new Rappel(), this.gbc);
+		this.gbc.gridy = 1;
+		this.add(new Rappel(), this.gbc);
+		this.gbc.gridy = 2;
+		this.add(new Rappel(), this.gbc);
+		this.gbc.gridy = 3;
+		this.add(new Rappel(), this.gbc);
+		this.gbc.gridy = 4;
+		this.add(new Rappel(0), this.gbc);
+		
 
 
 		this.display();

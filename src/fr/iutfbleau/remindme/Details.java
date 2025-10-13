@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 
-public class Details extends JFrame implements MouseListener{
+public class Details /*extends JFrame implements MouseListener*/{
 
 
 
@@ -16,7 +16,7 @@ public class Details extends JFrame implements MouseListener{
 
 
 
-
+		System.out.println("Details");
 
 
 
