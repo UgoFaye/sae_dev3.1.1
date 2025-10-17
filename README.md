@@ -6,3 +6,10 @@ Penser à :
 - git add * à la racine pour ajouter les modifications 
 - git commit -m "Une description" pour ajouter une description au commit
 - git push pour appliquer les changements sur le serveur
+
+
+Truc à faire :
+
+- Rappel
+- Evenement
+- GestionBdd
