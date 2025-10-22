@@ -31,6 +31,19 @@ public class Evenement{
 	protected String theme;
 
 	/**
+	 * Constructeur qui créé un Evenement seulement à partir d'un id
+	 * 
+	 * @param i l'id de l'Evenement
+	 */
+	public Evenement(int i){
+		this.id=i;
+		this.titre = "";
+		this.contenu = "";
+		this.rang = -1;
+		this.theme = "";
+	}
+
+	/**
 	 * Constructeur qui crée un Evenement à partir d'un tuple d'une base de données
 	 * 
 	 * @param rs un tuple de la base de données
@@ -134,6 +147,34 @@ public class Evenement{
 	public void settheme(String newtheme){
 		this.theme = newtheme;
 	}
+
+	/**
+	 * Met à jour l'Evenement dans la base de données
+	 */
+	public void majEvent(){
+		GestionBdd cnx = new GestionBdd();
+		cnx.maj(this.id,this.titre,this.contenu,this.rang,this.theme);
+		cnx.fermeConn();
+	}
+
+	/**
+	 * Crée l'evenement dans la base de données
+	 */
+	public void creeEvent(){
+		GestionBdd cnx = new GestionBdd();
+		cnx.cree(this.id,this.titre,this.contenu,this.rang,this.theme);
+		cnx.fermeConn();
+	}
+
+	/**
+	 * Supprime l'evenement de la base de données
+	 */
+	public void supprEvent(){
+		GestionBdd cnx = new GestionBdd();
+		cnx.supprimer(this.id);
+		cnx.fermeConn();
+	}
+
 
 	/**
 	 * Renvoi une chaine de characteres décrivant l'Evenement
