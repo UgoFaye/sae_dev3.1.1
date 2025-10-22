@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// REFAIRE L'AFFICHAGE EN ENTIER QD CLICK
 
 
 public class Affichage extends JPanel implements MouseListener
@@ -13,8 +13,8 @@ public class Affichage extends JPanel implements MouseListener
 
 
 
-	Liste liste = new Liste(0);
-	Liste liste2 = new Liste(1);
+	Liste list = new Liste();
+	Details contenu = new Details();
 	Boolean displayed = true;
 	CardLayout cl = new CardLayout();
 
@@ -26,17 +26,17 @@ public class Affichage extends JPanel implements MouseListener
 
 		super();
 
+		this.add(this.list);
+		this.add(contenu);
 		
-		this.setLocation(0,0);
 		this.setLayout(this.cl);
-		this.setSize(100,100);
-		this.liste.common.addMouseListener(this);
-		this.liste.jaune.addMouseListener(this);
-		this.liste2.common.addMouseListener(this);
-		this.liste2.l.addMouseListener(this);
+		for (int i = 0; i<list.events.length ; i++ ) {
+			this.list.events[i].addMouseListener(this);
+		}
+
 		
-		this.add(liste);
-		this.add(liste2);
+		
+		this.contenu.r.addMouseListener(this);
 		this.cl.first(this);
 
 
@@ -71,12 +71,12 @@ public class Affichage extends JPanel implements MouseListener
 
 	public void mouseReleased(MouseEvent e)
 	{			// un bouton relâché
-		JLabel jl = (JLabel) e.getSource();
+		Rappel jl = (Rappel) e.getSource();
 		String nom = jl.getText();
 		System.out.println(nom);
 		if(displayed)
 		{
-
+			this.contenu = new Details(jl);
 			displayed=false;
 			this.cl.last(this);
 		}

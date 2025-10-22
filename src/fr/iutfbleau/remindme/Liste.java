@@ -34,9 +34,8 @@ public class Liste extends JPanel
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
-	JLabel common = this.newCase2("L");
-	JLabel jaune = this.newCase2("Jaune");
-	JLabel l = this.newCase2("L");
+	Rappel[] events = new Rappel[10];
+
 
 
 
@@ -48,15 +47,13 @@ public class Liste extends JPanel
 	*/
 
 
-	public Liste(int i)
+	public Liste()
 	{
 		super();
 
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 
 		
-		this.setSize(200,100);
-		this.setLocation(0,0);
 
 
 
@@ -71,11 +68,17 @@ public class Liste extends JPanel
 		this.gbc.gridx = 0;
 		this.gbc.gridy = 0;
 
+		for (int i = 0; i< this.events.length ; i++ ) {
+			this.gbc.gridy = i;
+			if(i%2==0){
+				this.events[i] = this.newCase("a");
+			}else{
 
-		this.add(common);
-		this.gbc.gridy = 1;
+				this.events[i] = this.newCase2("a");
+			}
+			this.add(this.events[i], this.gbc);
+		}		
 		
-		if (i==0){this.add(jaune, this.gbc);}else{this.add(l, this.gbc);}
 		
 
 
@@ -89,21 +92,18 @@ public class Liste extends JPanel
 
 
 
+	public static Rappel newCase(String nomImg){
+
+        return new Rappel();
+
+	}
 
 
 
 
+	public static Rappel newCase2(String nomImg){
 
-	public static JLabel newCase2(String nomImg){
-
-
-		ImageIcon img = new ImageIcon("res/imgs/"+nomImg+".jpg"); 
-        Image resizedImage = img.getImage().getScaledInstance(100, 50, Image.SCALE_SMOOTH); 
-		JLabel laKaze = new JLabel(nomImg, img, JLabel.CENTER);
-        laKaze.setHorizontalTextPosition(JLabel.CENTER);
-        laKaze.setVerticalTextPosition(JLabel.BOTTOM);
-        laKaze.setBorder(BorderFactory.createMatteBorder(2, 2, 3, 3, Color.BLACK));
-        return laKaze;
+        return new Rappel(0);
 
 	}
 

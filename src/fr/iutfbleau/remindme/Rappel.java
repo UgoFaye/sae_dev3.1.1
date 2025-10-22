@@ -15,12 +15,11 @@ public class Rappel extends JLabel {
 
 		super();
 
-		String theme = "Jaune";
-		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		ImageIcon img = new ImageIcon(loader.getResource("imgs/"+theme+".jpg")); 
-        Image resizedImage = img.getImage().getScaledInstance(390, 70, Image.SCALE_SMOOTH); 
+		String nomImg = "Bleu";
+		ImageIcon img = new ImageIcon("res/imgs/"+nomImg+".jpg"); 
+        Image resizedImage = img.getImage().getScaledInstance(390, 95, Image.SCALE_SMOOTH); 
         img = new ImageIcon(resizedImage);
-        this.setText("BLABLABLA");
+        this.setText("BLABLA");
         this.setIcon(img);
         this.setHorizontalTextPosition(JLabel.CENTER);
         this.setVerticalTextPosition(JLabel.CENTER);
@@ -33,9 +32,9 @@ public class Rappel extends JLabel {
 		public Rappel(int i){
 
 		super();
-		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		ImageIcon img = new ImageIcon(loader.getResource("imgs/"+"Jaune"+".jpg")); 
-        Image resizedImage = img.getImage().getScaledInstance(390, 65, Image.SCALE_SMOOTH); 
+		String nomImg = "Jaune";
+		ImageIcon img = new ImageIcon("res/imgs/"+nomImg+".jpg"); 
+        Image resizedImage = img.getImage().getScaledInstance(390, 90, Image.SCALE_SMOOTH); 
         img = new ImageIcon(resizedImage);
         this.setText("BLABLABLA");
         this.setIcon(img);
