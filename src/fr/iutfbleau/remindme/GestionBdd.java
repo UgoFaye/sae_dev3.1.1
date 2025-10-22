@@ -153,6 +153,23 @@ public class GestionBdd{
 	}
 
 	/**
+	 * Renvoi le nombre de tuples stocké dans la base de données
+	 * 
+	 * @return Le nombre de tuples stocké dans la base de données
+	 */
+	public int nbrEvents(){
+		try{
+			PreparedStatement pst = this.cnx.prepareStatement("SELECT COUNT(*) FROM Rappel");
+			ResultSet res = pst.executeQuery();
+			res.next();
+			return res.getInt(1);
+		}catch (SQLException e){
+			System.out.println("Erreur compter les Evenements\n"+e.getMessage());
+		}
+		return -1;
+	}
+
+	/**
 	 * Ferme la connexion avec la base de données
 	 */
 	public void fermeConn(){
