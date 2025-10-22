@@ -136,6 +136,30 @@ public class GestionBdd{
 		}
 	}
 
+	/**
+	 * Ajoute un nouveau tuple dans la base de données 
+	 * 
+	 * @param id l'id du nouveau tuple
+	 * @param titre le titre du nouveau tuple
+	 * @param contenu le contenu du nouveau tuple
+	 * @param rang le rang du nouveau tuple 
+	 * @param theme le theme du nouveau tuple
+	 */
+	public void cree(int id, String titre, String contenu, int rang,String theme){
+		try{
+			PreparedStatement pst = this.cnx.prepareStatement("INSERT INTO Rappel VALUES (?,?,?,?,?)");
+			pst.setInt(1,id);
+			pst.setString(2,titre);
+			pst.setString(3,contenu);
+			pst.setInt(4,rang);
+			pst.setString(5,theme);
+			pst.executeUpdate();
+			pst.close();
+		}catch (SQLException e){
+			System.out.println("Erreur maj\n"+e.getMessage());
+		}
+	}
+
 
 	/**
 	 * Renvoi tous les tuples stocké dans la base de données
