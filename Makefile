@@ -15,4 +15,7 @@ papillon.jar : compil
 clean :
 	rm -rf build papillon.jar
 
+doc:
+	javadoc -d doc -sourcepath src -classpath /export/documents/mariadb-client.jar fr.iutfbleau.remindme
+
 .PHONY: default run compil exec clean
