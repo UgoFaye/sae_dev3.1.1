@@ -1,7 +1,5 @@
 package fr.iutfbleau.remindme;
 
-
-import org.mariadb.jdbc.*;
 import java.sql.*;
 
 /**
